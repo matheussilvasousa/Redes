@@ -9,7 +9,7 @@ import { Mission } from '../classes/mission';
 export class MissionService{
 
     private headers = new Headers({'Content-Type': 'application/json'});
-    private heroesUrl = 'api/heroes';  // URL to web api
+    private url = 'http://lowcost-env.v9mpr7bkgz.us-west-2.elasticbeanstalk.com/';  // URL to web api
 
     constructor(private http: Http){} 
  

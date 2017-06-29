@@ -2,12 +2,10 @@ export class Achievement{
 
     private id: number;
     private rank: number[];
-    private frontend_info: {
-        name: string;
-        photo_id: number;
-        description: string;
-        tier: string;
-    }
+    private name: string;
+    private photo_id: number;
+    private description: string;
+    private tier: string;
 
     getId(): number{
         return this.id;
@@ -17,8 +15,20 @@ export class Achievement{
         return this.rank;
     }
 
-    getFrontend_Info(): any{
-        return this.frontend_info;
+    getName(): string{
+        return this.name
+    }
+
+    getPhotoId(): number{
+        return this.photo_id;
+    }
+
+    getDescription(): string{
+        return this.description;
+    }
+
+    getTier(): string{
+        return this.tier;
     }
 
     setId(id: number){
@@ -29,8 +39,20 @@ export class Achievement{
         this.rank = rank;
     }
 
-    setFrontend_Info(frontend_info: any){
-        this.frontend_info = frontend_info;
+    setName(name: string): void{
+        this.name = name;
+    }
+
+    setPhotoId(photo_id: number): void{
+        this.photo_id = photo_id;
+    }
+
+    setDescription(description: string): void{
+        this.description = description;
+    }
+
+    setTier(tier: string): void{
+        this.tier = tier;
     }
 
 }

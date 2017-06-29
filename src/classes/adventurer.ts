@@ -8,12 +8,10 @@ export class Adventurer {
         doing: number[];
     }
     private achievements: number[];
-    private frontend_info: {
-        name: string;
-        photo_id: number;
-        description: string;
-        skills: string;
-    }
+    private name: string;
+    private photo_id: number;
+    private description: string;
+    private skills: string;
 
     getId(): number{
         return this.id;
@@ -35,8 +33,20 @@ export class Adventurer {
         return this.achievements;
     }
 
-    getFrontend_Info(): any{
-        return this.frontend_info;
+    getName(): string{
+        return this.name;
+    }
+
+    getPhotoId(): number{
+        return this.photo_id;
+    }
+
+    getDescription(): string{
+        return this.description;
+    }
+
+    getSkills(): string{
+        return this.skills;
     }
 
     setId(id: number){
@@ -59,8 +69,20 @@ export class Adventurer {
         this.achievements = achievements;
     }
 
-    setFrontend_Info(frontend_info: any){
-        this.frontend_info = frontend_info;
+    setName(name: string): void{
+        this.name = name;
+    }
+
+    setPhotoId(photo_id: number): void{
+        this.photo_id = photo_id;
+    }
+
+    setDescription(description: string): void{
+        this.description = description;
+    }
+
+    setSkills(skills: string): void{
+        this.skills = skills;
     }
 
 }
