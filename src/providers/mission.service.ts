@@ -1,61 +1,59 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import 'rxjs/add/operator/map';
-
 import { Mission } from '../classes/mission';
 
 @Injectable()
 export class MissionService{
 
-    private headers = new Headers({'Content-Type': 'application/json'});
-    private url = 'http://lowcost-env.v9mpr7bkgz.us-west-2.elasticbeanstalk.com/';  // URL to web api
+    private headers = new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'});
+    private url = 'http://lowcost-env.v9mpr7bkgz.us-west-2.elasticbeanstalk.com/';
 
-    constructor(private http: Http){} 
+    constructor(public http: Http){} 
  
-    getMissions(){ /*: Promise<Mission[]> {
-        return this.http.get(this.heroesUrl)
+    getMissions(): Promise<Mission[]> {
+        return this.http.get(this.url)
                 .toPromise()
-                .then(response => response.json().data as Hero[])
-                .catch(this.handleError);*/
+                .then(response => response.json().data as Mission[])
+                .catch(this.handleError);
     }
  
  
-    getMission(id: number){ /*:Promise<Mission> {
-        const url = `${this.heroesUrl}/${id}`;
+    getMission(id: number):Promise<Mission> {
+        const url = `${this.url}/${id}`;
         return this.http.get(url)
         .toPromise()
-        .then(response => response.json().data as Hero)
-        .catch(this.handleError);*/
+        .then(response => response.json().data as Mission)
+        .catch(this.handleError);
     }
      
-    delete(id: number){ /*: Promise<void> {
-        const url = `${this.heroesUrl}/${id}`;
+    delete(id: number): Promise<void> {
+        const url = `${this.url}/${id}`;
         return this.http.delete(url, {headers: this.headers})
         .toPromise()
         .then(() => null)
-        .catch(this.handleError);*/
+        .catch(this.handleError);
     }
      
-    create(name: string){ /*: Promise<Mission> {
-        /*return this.http
-        .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
-        .toPromise()
-        .then(res => res.json().data as Hero)
-        .catch(this.handleError);*/
-    }
-     
-    update(mission: Mission){/*: Promise<Mission> {
-        const url = `${this.heroesUrl}/${hero.id}`;
+    create(name: string): Promise<Mission> {
         return this.http
-        .put(url, JSON.stringify(hero), {headers: this.headers})
+        .post(this.url, JSON.stringify({name: name}), {headers: this.headers})
         .toPromise()
-        .then(() => hero)
-        .catch(this.handleError);*/
+        .then(res => res.json().data as Mission)
+        .catch(this.handleError);
+    }
+     
+    update(mission: Mission): Promise<Mission> {
+        const url = `${this.url}/${mission.getId}`;
+        return this.http
+        .put(url, JSON.stringify(mission), {headers: this.headers})
+        .toPromise()
+        .then(() => mission)
+        .catch(this.handleError);
     }
      
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('Não foi possível obter tal dado', error);
         return Promise.reject(error.message || error);
     }
 
