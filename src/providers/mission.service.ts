@@ -3,6 +3,8 @@ import { Headers, Http } from '@angular/http';
 
 import { Mission } from '../classes/mission';
 
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class MissionService{
 

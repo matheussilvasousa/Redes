@@ -13,8 +13,6 @@ import { MissionService } from '../providers/mission.service';
 import { AchievementService } from '../providers/achievement.service';
 import { AdventurerService } from '../providers/adventurer.service';
 
-import { AppRoutingModule }     from './app-routing.module';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -23,8 +21,7 @@ import { AppRoutingModule }     from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    AppRoutingModule
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
